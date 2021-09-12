@@ -1,0 +1,39 @@
+---
+- hosts: webservers
+  remote_user: ansible
+  become: yes
+  tasks:
+    - name: install java
+      apt:
+        name: default-jdk
+        state: present
+
+    - name: create a directore called tomcat
+      file:
+         path: /home/ansible/tomcat
+         state: directory
+         mode: '0777'
+
+    - name: download the tar gz file
+      get_url:
+         url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.0-M4/bin/apache-tomcat-10.1.0-M4.tar.gz
+         dest: /home/ansible/tomcat/
+         mode: '0777'
+
+    - name: unzip the downloaded file
+      unarchive:
+         src: /home/ansible/tomcat/apache-tomcat-10.1.0-M4.tar.gz
+         dest: /home/ansible/tomcat/
+         remote_src: yes
+
+         #    - name: change ownership of downloaded files
+         #      shell: 
+         #         cmd: chown -R ansible /home/ansible/tomcat/
+
+    - name: copying file to webapps directory
+      shell:
+         cmd: cp /home/ansible/example/addressbook.war /home/ansible/tomcat/apache-tomcat-10.1.0-M4/webapps/
+
+    - name: start tomcat server
+      shell:
+         cmd: /home/ansible/tomcat/apache-tomcat-10.1.0-M4/bin/startup.sh
