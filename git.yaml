@@ -14,3 +14,4 @@
       ansible.builtin.git: 
          repo: 'https://github.com/dheerajkolla/addressbook.war.git'
          dest: /home/ansible/example
+         delegate_to: localhost
