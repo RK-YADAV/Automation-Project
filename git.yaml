@@ -5,7 +5,7 @@
   tasks:
     - name: create a folder example
       file: 
-         path: /home/ansible/example
+         path: /tomcatfiles
          state: directory
          mode: '0777'
 
