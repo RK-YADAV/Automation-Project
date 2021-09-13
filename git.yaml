@@ -5,7 +5,7 @@
   tasks:
     - name: create a folder example
       file: 
-         path: /tomcatfiles
+         path: /home/ansible/example/
          state: directory
          mode: '0777'
 
@@ -13,4 +13,4 @@
     - name: download warfile
       ansible.builtin.git: 
          repo: 'https://github.com/dheerajkolla/addressbook.war.git'
-         dest: /tomcatfiles
+         dest: /home/ansible/example/ 
