@@ -36,4 +36,4 @@
 
     - name: start tomcat server
       shell:
-         command: sh /home/ansible/tomcat/apache-tomcat-10.1.0-M4/bin/startup.sh
+        cmd: sh /home/ansible/tomcat/apache-tomcat-10.1.0-M4/bin/startup.sh
