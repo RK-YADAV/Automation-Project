@@ -35,4 +35,5 @@
          cmd: cp /home/ansible/example/addressbook.war /home/ansible/tomcat/apache-tomcat-10.1.0-M4/webapps/
 
     - name: start tomcat server
-      shell: nohup /home/ansible/tomcat/apache-tomcat-10.1.0-M4/bin/startup.sh &
+      shell: 
+        cmd: nohup /home/ansible/tomcat/apache-tomcat-10.1.0-M4/bin/startup.sh 
