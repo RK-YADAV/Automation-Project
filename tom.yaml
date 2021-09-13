@@ -14,7 +14,7 @@
           - tomcat9-examples
           - tomcat9-docs
     - name: copy war
-      copy: src=/timcatfiles/addressbook.war dest=/var/lib/tomcat9/webapps/addressbook.war mode=0777 remote_src=no
+      copy: src=/timcatfiles/addressbook.war dest=/var/lib/tomcat9/webapps/addressbook.war mode=0777 remote_src=yes
      
     - name: Make sure a service is running
       ansible.builtin.systemd:
